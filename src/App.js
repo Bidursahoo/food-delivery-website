@@ -1,9 +1,10 @@
 
+import Home from "./screens/Home";
 
 function App() {
   return (
     <div>
-      <h1>Hello Bidur </h1>
+      <Home/>
     </div>
   );
 }
