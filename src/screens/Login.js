@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [credentials, setCredentials] = useState({
     mail: "",
     pass: "",
@@ -33,10 +34,13 @@ export default function Login() {
         if (!sts.success) {
           alert(sts.errors);
         } else {
-          setCredentials({
-            mail: "",
-            pass: "",
-          });
+          // setCredentials({
+          //   mail: "",
+          //   pass: "",
+          // });
+          localStorage.setItem("authTocken",sts.authTocken)
+          console.log(localStorage.getItem("authTocken"))
+          navigate("/")
         }
       });
   };
