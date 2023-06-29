@@ -5,6 +5,7 @@ import {
   Routes,
   Route
 } from 'react-router-dom'
+import SignUp from './screens/SignUp';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home/>}/>
           <Route exact path="/login" element={<Login/>}/>
+          <Route exact path="/signup" element={<SignUp/>}/>
         </Routes>
       </div>
     </Router>
