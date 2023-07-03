@@ -1,8 +1,8 @@
 //Note: Thesea are all the dependencies we used in the file
 const express = require("express");
 const route = express.Router();
-const user = require("../Models/UserModel");
-const { body, validationResult } = require("express-validator");
+const user = require("../Models/UserModel"); //Schema Fetched
+const { body, validationResult } = require("express-validator"); //body validator fetched
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require('dotenv').config()

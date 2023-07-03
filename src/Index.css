@@ -22,3 +22,8 @@ body{
 .card > .card-img-top{
     object-fit: contain;
 }
+.img-temp{
+    /* max-width: 280px; */
+    max-height: 140px;
+    object-fit: cover;
+}

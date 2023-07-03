@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-export default function Navbar() {
+export default function Navbar(props) {
   return (
     <div>
       <nav className=" navbar navbar-expand-lg bg-info rounded ">
@@ -44,6 +44,10 @@ export default function Navbar() {
                     type="search"
                     placeholder="Search"
                     aria-label="Search"
+                    value={props.search}
+                    onChange={(event)=>{
+                      props.setSearch(event.target.value);
+                    }}
                   />
                   <button className="btn btn-outline-success" type="submit">
                     Search

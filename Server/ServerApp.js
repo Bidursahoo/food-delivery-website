@@ -1,6 +1,5 @@
 //all declarations of packages
 const express = require("express");
-const FoodDataModel = require("./Models/FoodDataModel");
 const DBConnect = require("./DBConnect");
 const app = express();
 const port = 3004;
@@ -19,12 +18,11 @@ app.use((req,res,next)=>{
     next();
 })
 app.use(express.json())
-app.use("/api" , require("./Routes/CreateUser"))
 DBConnect.then(()=>{
     console.log("Data Base Connected")
 })
-const foodData = FoodDataModel
-foodData.find({}).then();
+app.use("/api" , require("./Routes/CreateUser"))
+app.use("/api" , require("./Routes/DisplayFoodData"))
 
 
 //all route queries .....

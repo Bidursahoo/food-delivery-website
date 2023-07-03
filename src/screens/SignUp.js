@@ -33,7 +33,7 @@ export default function SignUp() {
         return res.json();
       })
       .then((sts) => {
-        console.log(sts);
+        // console.log(sts);
         if (!sts.success) {
           alert("Please Enter Valid Credentials");
         } else {
