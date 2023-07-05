@@ -24,6 +24,6 @@ body{
 }
 .img-temp{
     /* max-width: 280px; */
-    max-height: 140px;
-    object-fit: cover;
+    max-height: 120px;
+    object-fit: fill;
 }
