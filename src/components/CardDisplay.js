@@ -34,7 +34,7 @@ export default function CardDisplay(props) {
         foodCategories.map((data) => {
           return (
             <div className="row mb-3">
-              <div key={data.id} className="fs-3 m-3">
+              <div key={data._id} className="fs-3 m-3">
                 {data.CategoryName}
               </div>
               <hr />
@@ -42,7 +42,7 @@ export default function CardDisplay(props) {
                 foodData
                   .filter((item) => (item.CategoryName === data.CategoryName) &&(item.name.toLowerCase().includes(props.search.toLocaleLowerCase())))
                   .map((filteredItem) => {
-                    return (<div key={filteredItem.id} className="col-12 col-md-6 col-lg-3">
+                    return (<div key={filteredItem._id} className="col-12 col-md-6 col-lg-3">
                       <Card item={filteredItem}/>
 
                     </div>);

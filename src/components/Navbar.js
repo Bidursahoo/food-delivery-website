@@ -1,5 +1,6 @@
 import React from "react";
 import { Link , useNavigate } from "react-router-dom";
+import { Badge } from "react-bootstrap";
 export default function Navbar(props) {
   const navigate =useNavigate();
   function handleLogout(){
@@ -45,7 +46,9 @@ export default function Navbar(props) {
               )}
               
               {localStorage.getItem("authTocken") ? (
-                <div className="btn bg-white text-success mx-1">Cart</div>
+                <div className="btn bg-white text-success mx-1">Cart{"  "}
+                <Badge className="bg-danger">1</Badge>
+                </div>
               ) : (
                 <div className="d-flex">
                   <Link className="btn bg-white text-success mx-1" to="/login">
