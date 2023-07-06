@@ -1,12 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useCart, useDispatchCart } from "../components/ContextReducer";
-// impost Delete from './boot'
 export default function Cart() {
+
   const data = useCart();
   const dispatch = useDispatchCart();
-  const handleCheckOut = () => {};
+  const handleCheckOut = () => {
+    let userEmail = localStorage.getItem("userEmail");
+    console.log(userEmail)
+    fetch("http://localhost:3004/api//orderData",{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        orderData: data,
+        email: userEmail,
+        OrderDate: new Date().toDateString()
+      })
+    }).then((res)=>{
+      if(res.status === 200){
+        dispatch({type: "DROP"})
+        alert("ThankYou For Purchasing from us");
+      }else{
+        alert("problem")
+      }
+    })
+  };
   let totalPrice = data.reduce((total, food) => total + food.price, 0);
+
+
   return (
     <div>
       {data.length !== 0 ? (

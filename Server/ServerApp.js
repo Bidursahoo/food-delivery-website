@@ -23,10 +23,11 @@ DBConnect.then(()=>{
 })
 app.use("/api" , require("./Routes/CreateUser"))
 app.use("/api" , require("./Routes/DisplayFoodData"))
+app.use("/api" , require("./Routes/OrderDataVisual"))
 
 
 //all route queries .....
 
 app.get("/" , (req,res)=>{
-    res.send("HEllo world");
+    res.send("This is Server Side");
 })

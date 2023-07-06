@@ -39,6 +39,8 @@ export default function Login() {
           //   pass: "",
           // });
           localStorage.setItem("authTocken",sts.authTocken)
+          localStorage.setItem("userEmail",credentials.mail)
+          // localStorage.setItem("authTocken",sts.authTocken)
           console.log(localStorage.getItem("authTocken"))
           navigate("/")
         }
