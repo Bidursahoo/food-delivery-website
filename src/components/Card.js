@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useDispatchCart } from "./ContextReducer";
+import { useCart, useDispatchCart } from "./ContextReducer";
 export default function Card(props) {
   let option = props.item.options;
   let priceOptions = Object.keys(option[0]);
   let dispatch = useDispatchCart();
   const [qnt , setQnt] = useState(0);
   const [size , setSize] = useState("");
+  const data = useCart();
 
 
   const handleChange = (event)=>{
@@ -25,7 +26,24 @@ export default function Card(props) {
     }else if(size ===""){
       alert("Please Enter a valid Size");
     }else{
-      dispatch({type:"ADD" , id:props.item._id , name:props.item.name , qnt:qnt , size:size , price:qnt * parseInt(option[0][size])})
+      let food =[];
+      for(const item of data){
+        if(item.id === props.item._id){
+          food =item;
+          break;
+        }
+      }
+      if(food !== []){
+        if(food.size === size){
+          dispatch({type:"UPDATE" , id:props.item._id , qnt:qnt , price:qnt * parseInt(option[0][size])})
+        }else{
+          dispatch({type:"ADD" , id:props.item._id , name:props.item.name , qnt:qnt , size:size , price:qnt * parseInt(option[0][size])}) 
+        }
+      }
+      else{
+        dispatch({type:"ADD" , id:props.item._id , name:props.item.name , qnt:qnt , size:size , price:qnt * parseInt(option[0][size])})
+      }
+      
     }
   }
   
