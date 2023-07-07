@@ -30,7 +30,7 @@ export default function Login() {
         return res.json();
       })
       .then((sts) => {
-        console.log(sts);
+        // console.log(sts);
         if (!sts.success) {
           alert(sts.errors);
         } else {
@@ -41,7 +41,7 @@ export default function Login() {
           localStorage.setItem("authTocken",sts.authTocken)
           localStorage.setItem("userEmail",credentials.mail)
           // localStorage.setItem("authTocken",sts.authTocken)
-          console.log(localStorage.getItem("authTocken"))
+          // console.log(localStorage.getItem("authTocken"))
           navigate("/")
         }
       });

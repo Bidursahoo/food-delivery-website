@@ -38,6 +38,9 @@ export default function Navbar(props) {
                 <div className="btn bg-white text-danger mx-1 " onClick={handleLogout}>
                   Logout
                 </div>
+                <Link className="btn bg-white text-warning mx-1 " to="/orders">
+                  MyOrder
+                </Link>
               </li>
               ) : (
                 <li className="nav-item">

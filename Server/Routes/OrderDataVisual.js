@@ -14,7 +14,7 @@ router.post('/orderData',(req,res)=>{
         // console.log(eId);
         if(eId === null){
             Orders.create({"Email": req.body.email,
-                OrderData:[date ,orderData]}).then(()=>{
+                OrderData:[[date ,orderData]]}).then(()=>{
                     res.json({success:true})
                 })
         }else{
@@ -27,6 +27,14 @@ router.post('/orderData',(req,res)=>{
     }).catch((error)=>{
         res.json({success:"Problem \n"+error})
     })
+})
+
+
+
+router.post('/getOrderData',(req,res)=>{
+        Orders.findOne({"Email":req.body.email}).then((result)=>{
+            res.json({data :result.OrderData})
+        })
 })
 
 module.exports = router;
