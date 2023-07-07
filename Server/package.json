@@ -4,9 +4,7 @@
   "description": "",
   "main": "ServerApp.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build":"npm i",
-    "dev" : "nodemon ./ServerApp.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
