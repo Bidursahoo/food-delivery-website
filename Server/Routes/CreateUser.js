@@ -7,7 +7,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require('dotenv').config()
 
-//Note: Login Route
+//Note: Signup Route
 route.post(
   "/signup",
   /*This is to validate if req.body.mail is an email or not*/
@@ -47,7 +47,8 @@ route.post(
 
 
 
-//Note: Signup Route
+
+//Note: Login Route
 route.post(
   "/login",
   body("mail", "Please enter a valid email").isEmail(),
